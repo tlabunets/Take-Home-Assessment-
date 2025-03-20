@@ -2,13 +2,13 @@
 -- Negative or zero quantities
 SELECT *
 FROM sales_data
-WHERE quantity <= 0
-   OR total_price < 0;
+WHERE quantity <= 0;
+
 
 -- Negative total_price values
 SELECT *
 FROM sales_data
-WHERE "total_price" < 0;
+WHERE total_price < 0;
 
 --  Mismatches between quantity and total_price
 SELECT *

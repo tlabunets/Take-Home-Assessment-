@@ -24,7 +24,9 @@ jobs:
           postgresql password: 'password'
 
       - name: Run SQL validation scripts
-        run: psql postgresql://postgres:password@localhost:5432/test_db -f sql/validate_data.sql
+        run: |
+          psql postgresql://postgres:password@localhost:5432/test_db -f tests/sql-validation/1.data_anomalies.sql
+          psql postgresql://postgres:password@localhost:5432/test_db -f tests/sql-validation/2.data_transformation.sql
 
   python_tests:
     needs: sql_validation
@@ -43,13 +45,13 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run PyTest
-        run: pytest --junitxml=reports/test-results.xml
+        run: pytest --junitxml=test-reports/test-results.xml
 
       - name: Upload test reports
         uses: actions/upload-artifact@v3
         with:
           name: test-reports
-          path: reports/
+          path: test-reports/
 
   notify:
     needs: python_tests

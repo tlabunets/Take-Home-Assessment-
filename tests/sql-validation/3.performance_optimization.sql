@@ -1,7 +1,7 @@
 
--- add indexes for quick filtering and groupping
-CREATE INDEX idx_order_date ON orders(order_date);
-CREATE INDEX idx_customer_id ON orders(customer_id);
+-- add index for quick filtering and grouping
+CREATE INDEX idx_orders_order_date_customer ON orders (order_date, customer_id);
+
 
 -- limit the number of lines using LIMIT
 
