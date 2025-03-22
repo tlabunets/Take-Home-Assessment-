@@ -53,14 +53,14 @@ jobs:
           name: test-reports
           path: test-reports/
 
-  notify:
-    needs: python_tests
-    runs-on: ubuntu-latest
-    if: failure()
-    steps:
-      - name: Send Slack notification
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_MESSAGE: '🚨 CI/CD pipeline failed! Check logs for details.'
+#  notify:
+#    needs: python_tests
+#    runs-on: ubuntu-latest
+#    if: failure()
+#    steps:
+#      - name: Send Slack notification
+#        uses: rtCamp/action-slack-notify@v2
+#        env:
+#          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+#          SLACK_MESSAGE: '🚨 CI/CD pipeline failed! Check logs for details.'
 
