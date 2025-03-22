@@ -1,4 +1,4 @@
-name: Data Validation Pipeline
+#name: Data Validation Pipeline
 
 on:
   push:
